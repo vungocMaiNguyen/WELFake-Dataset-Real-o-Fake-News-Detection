@@ -1,39 +1,67 @@
-# Fake News Detection - WELFake Dataset
+# WELFake-Dataset-Real-o-Fake-News-Detection
 
-This project applies supervised machine learning to classify news articles as Fake or Real using the WELFake Dataset.
+The project was developed as part of the Digital Transformation Management course at the University of Bologna.
 
-The project is implemented in the notebook:
+It aims to predict whether a news article is *Fake* or *Real* using the article title and full text. The task is treated as a supervised binary classification problem based on the WELFake Dataset.
 
-FakeNewsDetect.ipynb
+Label convention used in the notebook:
 
-## Dataset
+- 0 = Fake
+- 1 = Real
 
-The dataset CSV is not included in this repository.
+## Open the Notebook in Google Colab
 
-To run the notebook, download the WELFake Dataset and place the file here:
+Click the button below to launch the project directly in Google Colab:
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1fNOxDDH3228_xxHm_VwxuhGFMSqMLnUU#scrollTo=UIVDzO2mSBTQ)
+
+## Required Dataset
+
+The project uses the [WELFake Dataset](https://www.kaggle.com/datasets/saurabhshahane/fake-news-classification), a fake news classification dataset containing news titles, article texts, and binary labels.
+
+The dataset CSV is not included in this repository for size reasons.
+
+The notebook expects the file to be named:
+
+text
+WELFake_Dataset.csv
+
+
+## How to Use It in Colab
+
+### Option 1: Upload the CSV directly in Colab
+
+1. Download WELFake_Dataset.csv from Kaggle.
+2. Open the notebook in Google Colab.
+3. Upload the file in the Colab session, or place it inside a data/ folder.
+
+The notebook automatically checks these paths:
+
+text
+WELFake_Dataset.csv
 data/WELFake_Dataset.csv
+/content/WELFake_Dataset.csv
+/content/data/WELFake_Dataset.csv
 
-## Models
 
-The notebook compares:
+### Option 2: Use Google Drive
 
-- Decision Tree
-- Random Forest
-- k-Nearest Neighbors
+1. Download WELFake_Dataset.csv once from Kaggle.
+2. Upload the file into your Google Drive.
+3. Recommended path:
 
-## Main Techniques
+text
+MyDrive/Colab Notebooks/data/WELFake_Dataset.csv
 
-- Data cleaning
-- Duplicate removal
-- TF-IDF feature extraction
-- Stylistic feature engineering
-- Train/test split
-- Model evaluation with Accuracy, Precision, Recall, F1-score and Confusion Matrix
 
-## How to Run
+4. Mount Google Drive in Colab and copy the dataset to the path expected by the notebook:
 
-Install the required libraries:
+python
+from google.colab import drive
+drive.mount('/content/drive')
 
-```bash
-pip install -r requirements.txt
+!mkdir -p /content/data
+!cp "/content/drive/MyDrive/Colab Notebooks/data/WELFake_Dataset.csv" "/content/data/WELFake_Dataset.csv"
+
+
+After this step, run the notebook cells from the beginning.
